@@ -1,0 +1,312 @@
+debian@Debian:~$ su -
+Mot de passe : 
+root@Debian:~# sudo apt update && sudo apt upgrade -y
+Atteint :1 http://security.debian.org/debian-security bookworm-security InRelease
+Atteint :2 http://deb.debian.org/debian bookworm InRelease                     
+Atteint :3 http://deb.debian.org/debian bookworm-updates InRelease             
+Atteint :4 http://repo.mysql.com/apt/debian bookworm InRelease                 
+Atteint :5 https://download.docker.com/linux/debian bookworm InRelease         
+Atteint :6 https://apt.releases.hashicorp.com bookworm InRelease               
+Atteint :7 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.30/deb  InRelease
+Err :5 https://download.docker.com/linux/debian bookworm InRelease
+  Les signatures suivantes n'ont pas pu être vérifiées car la clé publique n'est pas disponible : NO_PUBKEY 7EA0A9C3F273FCD8
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+3 paquets peuvent être mis à jour. Exécutez « apt list --upgradable » pour les voir.
+W: Une erreur s'est produite lors du contrôle de la signature. Le dépôt n'est pas mis à jour et les fichiers d'index précédents seront utilisés. Erreur de GPG : https://download.docker.com/linux/debian bookworm InRelease : Les signatures suivantes n'ont pas pu être vérifiées car la clé publique n'est pas disponible : NO_PUBKEY 7EA0A9C3F273FCD8
+W: Impossible de récupérer https://download.docker.com/linux/debian/dists/bookworm/InRelease  Les signatures suivantes n'ont pas pu être vérifiées car la clé publique n'est pas disponible : NO_PUBKEY 7EA0A9C3F273FCD8
+W: Le téléchargement de quelques fichiers d'index a échoué, ils ont été ignorés, ou les anciens ont été utilisés à la place.
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+Calcul de la mise à jour... Fait
+Les paquets suivants ont été installés automatiquement et ne sont plus nécessaires :
+  libdaxctl1 libdbus-glib-1-2 libndctl6 libpmem1 linux-image-6.1.0-25-amd64
+Veuillez utiliser « sudo apt autoremove » pour les supprimer.
+Les paquets suivants seront mis à jour :
+  kubeadm kubectl kubelet
+3 mis à jour, 0 nouvellement installés, 0 à enlever et 0 non mis à jour.
+Il est nécessaire de prendre 0 o/39,6 Mo dans les archives.
+Après cette opération, 4 096 o d'espace disque supplémentaires seront utilisés.
+apt-listchanges : Lecture des fichiers de modifications (« changelog »)...
+(Lecture de la base de données... 186033 fichiers et répertoires déjà installés.
+)
+Préparation du dépaquetage de .../kubeadm_1.30.13-1.1_amd64.deb ...
+Dépaquetage de kubeadm (1.30.13-1.1) sur (1.30.12-1.1) ...
+Préparation du dépaquetage de .../kubectl_1.30.13-1.1_amd64.deb ...
+Dépaquetage de kubectl (1.30.13-1.1) sur (1.30.12-1.1) ...
+Préparation du dépaquetage de .../kubelet_1.30.13-1.1_amd64.deb ...
+Dépaquetage de kubelet (1.30.13-1.1) sur (1.30.12-1.1) ...
+Paramétrage de kubeadm (1.30.13-1.1) ...
+Paramétrage de kubectl (1.30.13-1.1) ...
+Paramétrage de kubelet (1.30.13-1.1) ...
+root@Debian:~# 
+root@Debian:~# 
+root@Debian:~# sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+Les paquets suivants ont été installés automatiquement et ne sont plus nécessaires :
+  libdaxctl1 libdbus-glib-1-2 libndctl6 libpmem1 libslirp0
+  linux-image-6.1.0-25-amd64 pigz slirp4netns
+Veuillez utiliser « sudo apt autoremove » pour les supprimer.
+Les paquets supplémentaires suivants seront installés : 
+  cgroupfs-mount containerd criu libintl-perl libintl-xs-perl
+  libmodule-find-perl libnet1 libproc-processtable-perl libsort-naturally-perl
+  needrestart python3-protobuf runc tini
+Paquets suggérés :
+  docker-doc aufs-tools btrfs-progs debootstrap rinse rootlesskit xfsprogs
+  zfs-fuse | zfsutils-linux needrestart-session | libnotify-bin
+Les paquets suivants seront ENLEVÉS :
+  containerd.io docker-ce docker-ce-cli docker-ce-rootless-extras
+Les NOUVEAUX paquets suivants seront installés :
+  cgroupfs-mount containerd criu docker.io libintl-perl libintl-xs-perl
+  libmodule-find-perl libnet1 libproc-processtable-perl libsort-naturally-perl
+  needrestart python3-protobuf runc tini
+0 mis à jour, 14 nouvellement installés, 4 à enlever et 0 non mis à jour.
+Il est nécessaire de prendre 67,0 Mo dans les archives.
+Après cette opération, 716 ko d'espace disque supplémentaires seront utilisés.
+Réception de :1 http://deb.debian.org/debian bookworm/main amd64 runc amd64 1.1.5+ds1-1+deb12u1 [2 710 kB]
+Réception de :2 http://deb.debian.org/debian bookworm/main amd64 containerd amd64 1.6.20~ds1-1+deb12u1 [25,9 MB]
+Réception de :3 http://deb.debian.org/debian bookworm/main amd64 tini amd64 0.19.0-1 [255 kB]
+Réception de :4 http://deb.debian.org/debian bookworm/main amd64 docker.io amd64 20.10.24+dfsg1-1+deb12u1 [36,2 MB]
+Réception de :5 http://deb.debian.org/debian bookworm/main amd64 cgroupfs-mount all 1.4 [6 276 B]
+Réception de :6 http://deb.debian.org/debian bookworm/main amd64 python3-protobuf amd64 3.21.12-3 [245 kB]
+Réception de :7 http://deb.debian.org/debian bookworm/main amd64 libnet1 amd64 1.1.6+dfsg-3.2 [60,3 kB]
+Réception de :8 http://deb.debian.org/debian bookworm/main amd64 criu amd64 3.17.1-2+deb12u1 [665 kB]
+Réception de :9 http://deb.debian.org/debian bookworm/main amd64 libintl-perl all 1.33-1 [720 kB]
+Réception de :10 http://deb.debian.org/debian bookworm/main amd64 libintl-xs-perl amd64 1.33-1 [15,6 kB]
+Réception de :11 http://deb.debian.org/debian bookworm/main amd64 libmodule-find-perl all 0.16-2 [10,6 kB]
+Réception de :12 http://deb.debian.org/debian bookworm/main amd64 libproc-processtable-perl amd64 0.634-1+b2 [43,1 kB]
+Réception de :13 http://deb.debian.org/debian bookworm/main amd64 libsort-naturally-perl all 1.03-4 [13,1 kB]
+Réception de :14 http://deb.debian.org/debian bookworm/main amd64 needrestart all 3.6-4+deb12u3 [60,5 kB]
+67,0 Mo réceptionnés en 26s (2 559 ko/s)                                       
+(Lecture de la base de données... 186033 fichiers et répertoires déjà installés.
+)
+Suppression de docker-ce (5:28.1.1-1~debian.12~bookworm) ...
+Suppression de containerd.io (1.7.27-1) ...
+Suppression de docker-ce-cli (5:28.1.1-1~debian.12~bookworm) ...
+Suppression de docker-ce-rootless-extras (5:28.1.1-1~debian.12~bookworm) ...
+Sélection du paquet runc précédemment désélectionné.
+(Lecture de la base de données... 185806 fichiers et répertoires déjà installés.
+)
+Préparation du dépaquetage de .../00-runc_1.1.5+ds1-1+deb12u1_amd64.deb ...
+Dépaquetage de runc (1.1.5+ds1-1+deb12u1) ...
+Sélection du paquet containerd précédemment désélectionné.
+Préparation du dépaquetage de .../01-containerd_1.6.20~ds1-1+deb12u1_amd64.deb .
+..
+Dépaquetage de containerd (1.6.20~ds1-1+deb12u1) ...
+Sélection du paquet tini précédemment désélectionné.
+Préparation du dépaquetage de .../02-tini_0.19.0-1_amd64.deb ...
+Dépaquetage de tini (0.19.0-1) ...
+Sélection du paquet docker.io précédemment désélectionné.
+Préparation du dépaquetage de .../03-docker.io_20.10.24+dfsg1-1+deb12u1_amd64.de
+b ...
+Dépaquetage de docker.io (20.10.24+dfsg1-1+deb12u1) ...
+Sélection du paquet cgroupfs-mount précédemment désélectionné.
+Préparation du dépaquetage de .../04-cgroupfs-mount_1.4_all.deb ...
+Dépaquetage de cgroupfs-mount (1.4) ...
+Sélection du paquet python3-protobuf précédemment désélectionné.
+Préparation du dépaquetage de .../05-python3-protobuf_3.21.12-3_amd64.deb ...
+Dépaquetage de python3-protobuf (3.21.12-3) ...
+Sélection du paquet libnet1:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../06-libnet1_1.1.6+dfsg-3.2_amd64.deb ...
+Dépaquetage de libnet1:amd64 (1.1.6+dfsg-3.2) ...
+Sélection du paquet criu précédemment désélectionné.
+Préparation du dépaquetage de .../07-criu_3.17.1-2+deb12u1_amd64.deb ...
+Dépaquetage de criu (3.17.1-2+deb12u1) ...
+Sélection du paquet libintl-perl précédemment désélectionné.
+Préparation du dépaquetage de .../08-libintl-perl_1.33-1_all.deb ...
+Dépaquetage de libintl-perl (1.33-1) ...
+Sélection du paquet libintl-xs-perl précédemment désélectionné.
+Préparation du dépaquetage de .../09-libintl-xs-perl_1.33-1_amd64.deb ...
+Dépaquetage de libintl-xs-perl (1.33-1) ...
+Sélection du paquet libmodule-find-perl précédemment désélectionné.
+Préparation du dépaquetage de .../10-libmodule-find-perl_0.16-2_all.deb ...
+Dépaquetage de libmodule-find-perl (0.16-2) ...
+Sélection du paquet libproc-processtable-perl:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../11-libproc-processtable-perl_0.634-1+b2_amd64.
+deb ...
+Dépaquetage de libproc-processtable-perl:amd64 (0.634-1+b2) ...
+Sélection du paquet libsort-naturally-perl précédemment désélectionné.
+Préparation du dépaquetage de .../12-libsort-naturally-perl_1.03-4_all.deb ...
+Dépaquetage de libsort-naturally-perl (1.03-4) ...
+Sélection du paquet needrestart précédemment désélectionné.
+Préparation du dépaquetage de .../13-needrestart_3.6-4+deb12u3_all.deb ...
+Dépaquetage de needrestart (3.6-4+deb12u3) ...
+Paramétrage de libnet1:amd64 (1.1.6+dfsg-3.2) ...
+Paramétrage de runc (1.1.5+ds1-1+deb12u1) ...
+Paramétrage de libmodule-find-perl (0.16-2) ...
+Paramétrage de tini (0.19.0-1) ...
+Paramétrage de libproc-processtable-perl:amd64 (0.634-1+b2) ...
+Paramétrage de libintl-perl (1.33-1) ...
+Paramétrage de cgroupfs-mount (1.4) ...
+Paramétrage de python3-protobuf (3.21.12-3) ...
+Paramétrage de containerd (1.6.20~ds1-1+deb12u1) ...
+
+Fichier de configuration « /etc/containerd/config.toml »
+ ==> Modifié (par vous ou par un script) depuis l'installation.
+ ==> Le distributeur du paquet a fourni une version mise à jour.
+   Que voulez-vous faire ? Vos options sont les suivantes :
+    Y ou I  : installer la version du responsable du paquet
+    N ou O  : garder votre version actuellement installée
+      D     : afficher les différences entre les versions
+      Z     : suspendre ce processus pour examiner la situation
+ L'action par défaut garde votre version actuelle.
+*** config.toml (Y/I/N/O/D/Z) [défaut=N] ? 
+Paramétrage de libsort-naturally-perl (1.03-4) ...
+Paramétrage de needrestart (3.6-4+deb12u3) ...
+Paramétrage de docker.io (20.10.24+dfsg1-1+deb12u1) ...
+Installation de la nouvelle version du fichier de configuration /etc/default/doc
+ker ...
+Installation de la nouvelle version du fichier de configuration /etc/init.d/dock
+er ...
+Paramétrage de libintl-xs-perl (1.33-1) ...
+Paramétrage de criu (3.17.1-2+deb12u1) ...
+Traitement des actions différées (« triggers ») pour man-db (2.11.2-2) ...
+Traitement des actions différées (« triggers ») pour libc-bin (2.36-9+deb12u10) 
+...
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
+root@Debian:~# 
+
+root@Debian:~# curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 37.0M  100 37.0M    0     0  6608k      0  0:00:05  0:00:05 --:--:-- 7114k
+Sélection du paquet minikube précédemment désélectionné.
+(Lecture de la base de données... 186805 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de minikube_latest_amd64.deb ...
+Dépaquetage de minikube (1.35.0-0) ...
+Paramétrage de minikube (1.35.0-0) ...
+root@Debian:~# 
+
+debian@Debian:~$ sudo useradd -m -G docker -s /bin/bash minikube-user
+sudo passwd minikube-user
+[sudo] Mot de passe de debian : 
+debian n'est pas dans le fichier sudoers.
+[sudo] Mot de passe de debian : 
+debian n'est pas dans le fichier sudoers.
+ 
+debian@Debian:~$ 
+debian@Debian:~$ su - minikube-user
+Mot de passe : 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ minikube start --driver=docker
+😄  minikube v1.35.0 sur Debian 12.10
+✨  Utilisation du pilote docker basé sur le profil existant
+
+🧯  L'allocation de mémoire demandée de 1966MiB ne laisse pas de place pour la surcharge système (mémoire système totale : 1966MiB). Vous pouvez rencontrer des problèmes de stabilité.
+💡  Suggestion : Start minikube with less memory allocated: 'minikube start --memory=1966mb'
+
+👍  Démarrage du nœud "minikube" primary control-plane dans le cluster "minikube"
+🚜  Extraction de l'image de base v0.0.46...
+🔄  Redémarrage du docker container existant pour "minikube" ...
+
+🧯  Docker est presque à court d'espace disque, ce qui peut entraîner l'échec des déploiements ! (95 % de la capacité). Vous pouvez passer '--force' pour ignorer cette vérification.
+💡  Suggestion : 
+
+    Essayez une ou plusieurs des solutions suivantes pour libérer de l'espace sur l'appareil :
+    
+    1. Exécutez "docker system prune" pour supprimer les données Docker inutilisées (éventuellement avec "-a")
+    2. Augmentez le stockage alloué à Docker for Desktop en cliquant sur :
+    Icône Docker > Settings > Ressources > Disk Image Size
+    3. Exécutez "minikube ssh -- docker system prune" si vous utilisez l'environnement d'exécution du conteneur Docker
+🍿  Problème connexe: https://github.com/kubernetes/minikube/issues/9024
+
+🐳  Préparation de Kubernetes v1.32.0 sur Docker 27.4.1...
+    ▪ Génération des certificats et des clés
+    ▪ Démarrage du plan de contrôle ...
+    ▪ Configuration des règles RBAC ...
+🔗  Configuration de bridge CNI (Container Networking Interface)...
+🔎  Vérification des composants Kubernetes...
+    ▪ Utilisation de l'image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Modules activés: storage-provisioner, default-storageclass
+🏄  Terminé ! kubectl est maintenant configuré pour utiliser "minikube" cluster et espace de noms "default" par défaut.
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ sudo minikube start --driver=none
+[sudo] Mot de passe de minikube-user : 
+minikube-user n'est pas dans le fichier sudoers.
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ 
+minikube-user@Debian:~$ kubectl get nodes
+NAME       STATUS   ROLES           AGE     VERSION
+minikube   Ready    control-plane   9m19s   v1.32.0
+minikube-user@Debian:~$ git clone https://github.com/dockersamples/example-voting-app.git
+cd example-voting-app/k8s-specifications
+Clonage dans 'example-voting-app'...
+remote: Enumerating objects: 1179, done.
+remote: Total 1179 (delta 0), reused 0 (delta 0), pack-reused 1179 (from 1)
+Réception d'objets: 100% (1179/1179), 1.21 Mio | 4.71 Mio/s, fait.
+Résolution des deltas: 100% (448/448), fait.
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ kubectl apply -f . 
+deployment.apps/db created
+service/db created
+deployment.apps/redis created
+service/redis created
+deployment.apps/result created
+service/result created
+deployment.apps/vote created
+service/vote created
+deployment.apps/worker created
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ kubectl apply -f . 
+deployment.apps/db unchanged
+service/db unchanged
+deployment.apps/redis unchanged
+service/redis unchanged
+deployment.apps/result unchanged
+service/result unchanged
+deployment.apps/vote unchanged
+service/vote unchanged
+deployment.apps/worker unchanged
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ kubectl get pods
+kubectl get svc
+Unable to connect to the server: net/http: TLS handshake timeout
+Unable to connect to the server: net/http: TLS handshake timeout
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ minikube status
+❗  L'exécution de "docker container inspect minikube --format={{.State.Status}}" a pris un temps inhabituellement long : 2.192453828s
+💡  Le redémarrage du service docker peut améliorer les performances.
+log: exiting because of error: write /tmp/minikube_status_47498a466208b34b494f19c60a266662273857e0_0.log: no space left on device
+minikube-user@Debian:~/example-voting-app/k8s-specifications$ 
+
+
+
+
+
